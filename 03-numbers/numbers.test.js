@@ -24,9 +24,8 @@ test.each(PRIME_NUMBER_TEST_CASE)(`1. check if number %s is prime`, (n, e) => ex
 test.each(PRIME_NUMBER_TEST_CASE)(`2. check if number %s is prime`, (n, e) => expect(isPrime2(n)).toBe(e))
 test.each(PRIME_NUMBER_TEST_CASE)(`3. check if number %s is prime`, (n, e) => expect(isPrime3(n)).toBe(e))
 
-const PRIME_FACTOR_TEST_CASE = [
+test.each([
   [900, [2,2,3,3,5,5]],
   [11, [11]],
   [100, [2,2,5,5]],
-]
-test.each(PRIME_FACTOR_TEST_CASE)('prime factors', (n, e) => expect(primeFactors(n)).toEqual(e))
+])('prime factors', (n, e) => expect(primeFactors(n)).toEqual(e))
