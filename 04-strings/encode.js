@@ -25,3 +25,21 @@ export function decodeId(id) {
 
   return decoded
 }
+
+export const isPalindrome = (word) => {
+  if (word.length <= 2) {
+    return true
+  }
+
+  const halfOfLength =  Math.floor(word.length / 2)
+  for (let i = 0; i < halfOfLength; i++) {
+    const startLetter = word.charAt(i)
+    const endLetter = word.charAt(word.length - 1 - i)
+
+    if (startLetter !== endLetter) {
+      return false
+    }
+  }
+
+  return true
+}
