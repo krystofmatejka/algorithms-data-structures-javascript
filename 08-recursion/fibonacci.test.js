@@ -7,7 +7,7 @@ const TEST_CASE = [
   [8, 21],
 ]
 
-describe.only('fibonacci', () => {
+describe('fibonacci', () => {
   test.each(TEST_CASE)(getFibNumIter.name, (n, e) => {
     expect(getFibNumIter(n)).toBe(e)
   })
