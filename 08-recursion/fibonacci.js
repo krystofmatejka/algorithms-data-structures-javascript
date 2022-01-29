@@ -1,4 +1,4 @@
-export function getFibNumIter(n) {
+export const getFibNumIter = (n) => {
   let sum = 1
   let last = 1
   let previous = 0
@@ -12,7 +12,7 @@ export function getFibNumIter(n) {
   return sum
 }
 
-export function getFibSeqIter(n) {
+export const getFibSeqIter = (n) => {
   const sequence = []
 
   for (let i = 0; i < n; i++) {
@@ -52,28 +52,28 @@ export function getFibSeqIter(n) {
        -> f(1)
        -> f(0)
  */
-export function getFibNumRecursive(n) {
-  return (n <= 1)
-    ? n
-    : getFibNumRecursive(n - 1) + getFibNumRecursive(n - 2)
-}
+export const getFibNumRecursive = (n) => (n <= 1)
+  ? n
+  : getFibNumRecursive(n - 1) + getFibNumRecursive(n - 2)
 
 /**
   f(6)
+    -> n=6, previous=0, last=1
   f(5)
+    -> n=5, previous=1, last=2
   f(4)
+    -> n=4, previous=2, last=3
   f(3)
+    -> n=3, previous=3, last=5
   f(2)
+    -> n=2, previous=5, last=8
   f(1)
+    -> return last
 */
-export function getFibNumRecursiveOptimal(n) {
-  function f(n, previous, last) {
-    switch (true) {
-      case (n === 0): return previous
-      case (n === 1): return last
-      default: return f(n - 1, last, previous + last)
-    }
-  }
+export const getFibNumRecursiveOptimal = (n) => {
+  const f = (n, previous, last) => (n <= 1)
+    ? last
+    : f(n - 1, last, previous + last)
 
   return f(n, 0, 1)
 }
